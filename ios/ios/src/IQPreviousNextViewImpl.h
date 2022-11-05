@@ -283,6 +283,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setBackgroundWithNSString:(NSString *)arg0;
 
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setChildXmlWithNSString:(NSString *)arg0;
+
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setClickableWithBoolean:(jboolean)arg0;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setClipChildrenWithBoolean:(jboolean)arg0;

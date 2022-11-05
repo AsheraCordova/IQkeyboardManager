@@ -175,6 +175,10 @@ public java.util.Map<String, Object> getOnEditorActionEventObj(TextView v,int ac
     obj.put("fragmentId", w.getFragment().getFragmentId());
     obj.put("actionUrl", w.getFragment().getActionUrl());
     
+    if (w.getComponentId() != null) {
+    	obj.put("componentId", w.getComponentId());
+    }
+    
     PluginInvoker.putJSONSafeObjectIntoMap(obj, "id", w.getId());
      
         PluginInvoker.putJSONSafeObjectIntoMap(obj, "actionId", actionId);
