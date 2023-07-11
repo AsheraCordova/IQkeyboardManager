@@ -246,7 +246,11 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setOnLongClickWithNSString:(NSString *)arg0;
 
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setOnSwipedWithNSString:(NSString *)arg0;
+
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setOnTouchWithNSString:(NSString *)arg0;
+
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setOutsideTouchableWithBoolean:(jboolean)arg0;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setRotationWithFloat:(jfloat)arg0;
 
