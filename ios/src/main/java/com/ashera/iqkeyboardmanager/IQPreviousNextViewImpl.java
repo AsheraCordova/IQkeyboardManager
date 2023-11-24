@@ -363,6 +363,31 @@ return layoutParams.gravity;			}
             ViewImpl.nativeSetVisibility(asNativeWidget(), visibility != View.VISIBLE);
             
         }
+        
+        	public void state0() {
+        		ViewImpl.state(IQPreviousNextViewImpl.this, 0);
+        	}
+        	public void state1() {
+        		ViewImpl.state(IQPreviousNextViewImpl.this, 1);
+        	}
+        	public void state2() {
+        		ViewImpl.state(IQPreviousNextViewImpl.this, 2);
+        	}
+        	public void state3() {
+        		ViewImpl.state(IQPreviousNextViewImpl.this, 3);
+        	}
+        	public void state4() {
+        		ViewImpl.state(IQPreviousNextViewImpl.this, 4);
+        	}
+                        
+        public void stateYes() {
+        	ViewImpl.stateYes(IQPreviousNextViewImpl.this);
+        	
+        }
+        
+        public void stateNo() {
+        	ViewImpl.stateNo(IQPreviousNextViewImpl.this);
+        }
 	}
 	@Override
 	public Class getViewClass() {
@@ -437,7 +462,7 @@ break;			}
 	public void setId(String id){
 		if (id != null && !id.equals("")){
 			super.setId(id);
-			frameLayout.setId(IdGenerator.getId(id));
+			frameLayout.setId((int) quickConvert(id, "id"));
 		}
 	}
 	
