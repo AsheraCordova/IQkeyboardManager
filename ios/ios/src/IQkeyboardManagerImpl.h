@@ -88,6 +88,10 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 
 - (instancetype)initWithASIQkeyboardManagerImpl:(ASIQkeyboardManagerImpl *)outer$;
 
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)animatorXmlWithNSString:(NSString *)arg0;
+
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)endAnimator;
+
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)executeWithBoolean:(jboolean)setter;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)invalidate;
@@ -123,6 +127,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setCustomErrorMessageValuesWithNSString:(NSString *)arg0;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setDuplicateParentStateWithBoolean:(jboolean)arg0;
+
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setElevationWithNSString:(NSString *)arg0;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setEnabledWithBoolean:(jboolean)arg0;
 
@@ -236,6 +242,14 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setNextFocusUpWithNSString:(NSString *)value;
 
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setOnAnimationCancelWithNSString:(NSString *)arg0;
+
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setOnAnimationEndWithNSString:(NSString *)arg0;
+
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setOnAnimationRepeatWithNSString:(NSString *)arg0;
+
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setOnAnimationStartWithNSString:(NSString *)arg0;
+
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setOnClickWithNSString:(NSString *)arg0;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setOnDragWithNSString:(NSString *)arg0;
@@ -301,6 +315,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setVisibilityWithNSString:(NSString *)arg0;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setZIndexWithInt:(jint)arg0;
+
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)startAnimator;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetAlpha;
 

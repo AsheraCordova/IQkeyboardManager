@@ -358,6 +358,26 @@ return layoutParams.gravity;			}
 		}
 		@Override
 		public void setMyAttribute(String name, Object value) {
+			if (name.equals("state0")) {
+				setState0(value);
+				return;
+			}
+			if (name.equals("state1")) {
+				setState1(value);
+				return;
+			}
+			if (name.equals("state2")) {
+				setState2(value);
+				return;
+			}
+			if (name.equals("state3")) {
+				setState3(value);
+				return;
+			}
+			if (name.equals("state4")) {
+				setState4(value);
+				return;
+			}
 			IQPreviousNextViewImpl.this.setAttribute(name, value, true);
 		}
         @Override
@@ -367,6 +387,21 @@ return layoutParams.gravity;			}
             
         }
         
+    	public void setState0(Object value) {
+    		ViewImpl.setState(IQPreviousNextViewImpl.this, 0, value);
+    	}
+    	public void setState1(Object value) {
+    		ViewImpl.setState(IQPreviousNextViewImpl.this, 1, value);
+    	}
+    	public void setState2(Object value) {
+    		ViewImpl.setState(IQPreviousNextViewImpl.this, 2, value);
+    	}
+    	public void setState3(Object value) {
+    		ViewImpl.setState(IQPreviousNextViewImpl.this, 3, value);
+    	}
+    	public void setState4(Object value) {
+    		ViewImpl.setState(IQPreviousNextViewImpl.this, 4, value);
+    	}
         	public void state0() {
         		ViewImpl.state(IQPreviousNextViewImpl.this, 0);
         	}

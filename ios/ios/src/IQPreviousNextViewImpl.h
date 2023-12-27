@@ -216,6 +216,16 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl)
 - (void)setMyAttributeWithNSString:(NSString *)name
                             withId:(id)value;
 
+- (void)setState0WithId:(id)value;
+
+- (void)setState1WithId:(id)value;
+
+- (void)setState2WithId:(id)value;
+
+- (void)setState3WithId:(id)value;
+
+- (void)setState4WithId:(id)value;
+
 - (void)setVisibilityWithInt:(jint)visibility;
 
 - (void)state0;
@@ -283,6 +293,10 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)addModelWithId:(id)arg0;
 
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)animatorXmlWithNSString:(NSString *)arg0;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)endAnimator;
+
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)executeWithBoolean:(jboolean)setter;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)invalidate;
@@ -332,6 +346,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setCustomErrorMessageValuesWithNSString:(NSString *)arg0;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setDuplicateParentStateWithBoolean:(jboolean)arg0;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setElevationWithNSString:(NSString *)arg0;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setEnabledWithBoolean:(jboolean)arg0;
 
@@ -453,6 +469,14 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setModelUiToPojoWithNSString:(NSString *)arg0;
 
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setOnAnimationCancelWithNSString:(NSString *)arg0;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setOnAnimationEndWithNSString:(NSString *)arg0;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setOnAnimationRepeatWithNSString:(NSString *)arg0;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setOnAnimationStartWithNSString:(NSString *)arg0;
+
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setOnChildViewAddedWithNSString:(NSString *)arg0;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setOnChildViewRemovedWithNSString:(NSString *)arg0;
@@ -538,6 +562,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setVisibilityWithNSString:(NSString *)arg0;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setZIndexWithInt:(jint)arg0;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)startAnimator;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetAddStatesFromChildren;
 
