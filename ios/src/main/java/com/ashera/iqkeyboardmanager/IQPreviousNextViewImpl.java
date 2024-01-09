@@ -108,7 +108,7 @@ public class IQPreviousNextViewImpl extends BaseHasWidgets {
         }    
         return remove;
     }
-	
+
 	private void nativeRemoveView(IWidget widget) {
 		r.android.animation.LayoutTransition layoutTransition = frameLayout.getLayoutTransition();
 		if (layoutTransition != null && (
