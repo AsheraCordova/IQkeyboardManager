@@ -321,6 +321,10 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setAlphaWithFloat:(jfloat)arg0;
 
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setAnimateLayoutChangesWithBoolean:(jboolean)arg0;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setAnimateParentHierarchyWithBoolean:(jboolean)arg0;
+
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setAsDragSourceWithNSString:(NSString *)arg0;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setAttributeUnderTestWithNSString:(NSString *)arg0;
@@ -332,6 +336,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setBackgroundTintWithNSString:(NSString *)arg0;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setBackgroundWithNSString:(NSString *)arg0;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setBottomWithNSString:(NSString *)arg0;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setChildXmlWithNSString:(NSString *)arg0;
 
@@ -439,6 +445,12 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setLayoutModeWithNSString:(NSString *)arg0;
 
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setLayoutTransitionDurationWithInt:(jint)arg0;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setLayoutTransitionWithNSString:(NSString *)arg0;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setLeftWithNSString:(NSString *)arg0;
+
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setListitemWithNSString:(NSString *)arg0;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setLongClickableWithBoolean:(jboolean)arg0;
@@ -515,6 +527,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setPaddingWithNSString:(NSString *)arg0;
 
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setRightWithNSString:(NSString *)arg0;
+
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setRotationWithFloat:(jfloat)arg0;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setRotationXWithFloat:(jfloat)arg0;
@@ -532,6 +546,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setTextAlignmentWithNSString:(NSString *)arg0;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setTextDirectionWithNSString:(NSString *)arg0;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setTopWithNSString:(NSString *)arg0;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setTransformPivotXWithNSString:(NSString *)arg0;
 
@@ -576,6 +592,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetBackgroundTint;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetBackgroundTintMode;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetBottom;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetClickable;
 
@@ -663,6 +681,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetLayoutMode;
 
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetLeft;
+
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetLongClickable;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetMaxHeight;
@@ -699,6 +719,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetPaddingTop;
 
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetRight;
+
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetRotation;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetRotationX;
@@ -714,6 +736,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetTextAlignment;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetTextDirection;
+
+- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetTop;
 
 - (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetTransformPivotX;
 

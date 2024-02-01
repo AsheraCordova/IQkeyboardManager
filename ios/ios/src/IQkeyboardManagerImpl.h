@@ -118,6 +118,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setBackgroundWithNSString:(NSString *)arg0;
 
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setBottomWithNSString:(NSString *)arg0;
+
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setClickableWithBoolean:(jboolean)arg0;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setContentDescriptionWithNSString:(NSString *)arg0;
@@ -216,6 +218,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setLayoutDirectionWithNSString:(NSString *)arg0;
 
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setLeftWithNSString:(NSString *)arg0;
+
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setLongClickableWithBoolean:(jboolean)arg0;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setMaxHeightWithNSString:(NSString *)arg0;
@@ -266,6 +270,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setOutsideTouchableWithBoolean:(jboolean)arg0;
 
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setRightWithNSString:(NSString *)arg0;
+
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setRotationWithFloat:(jfloat)arg0;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setRotationXWithFloat:(jfloat)arg0;
@@ -283,6 +289,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setTextAlignmentWithNSString:(NSString *)arg0;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setTextDirectionWithNSString:(NSString *)arg0;
+
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setTopWithNSString:(NSString *)arg0;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setTransformPivotXWithNSString:(NSString *)arg0;
 
@@ -325,6 +333,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetBackgroundTint;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetBackgroundTintMode;
+
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetBottom;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetClickable;
 
@@ -406,6 +416,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetLayoutDirection;
 
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetLeft;
+
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetLongClickable;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetMaxHeight;
@@ -424,6 +436,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetModelUiToPojo;
 
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetRight;
+
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetRotation;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetRotationX;
@@ -439,6 +453,8 @@ J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetTextAlignment;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetTextDirection;
+
+- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetTop;
 
 - (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)tryGetTransformPivotX;
 
