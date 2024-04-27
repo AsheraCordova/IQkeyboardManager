@@ -13,6 +13,7 @@ import {MotionEvent} from '../../app/MotionEvent';
 import {DragEvent} from '../../app/DragEvent';
 import {KeyEvent} from '../../app/KeyEvent';
 import { ScopedObject } from '../../app/ScopedObject';
+import { Mixin, decorate } from 'ts-mixer';
 
 
 
@@ -25,17 +26,17 @@ export abstract class IQkeyboardManagerImpl<T> extends ViewImpl<T>{
 	//start - body
 	static initialize() {
     }	
-	@Type(() => CommandAttr)
-	@Expose({ name: "nextFocusDown" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "nextFocusDown" }))
 	nextFocusDown!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "nextFocusUp" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "nextFocusUp" }))
 	nextFocusUp!:CommandAttr<string>| undefined;
-	@Type(() => CommandAttr)
-	@Expose({ name: "onEditorAction" })
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "onEditorAction" }))
 	onEditorAction!:CommandAttr<string>| undefined;
 
-	@Exclude()
+	@decorate(Exclude())
 	protected thisPointer: T;	
 	protected abstract getThisPointer(): T;
 	reset() : T {	
