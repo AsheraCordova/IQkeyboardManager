@@ -40,6 +40,7 @@
 
 #include "ASIQPreviousNextView.h"
 
+@protocol JavaUtilList;
 @protocol JavaUtilMap;
 
 
@@ -86,6 +87,7 @@ __attribute__((unused)) static ADFrameLayout_LayoutParams *ASIQPreviousNextViewI
   __unsafe_unretained ASIQPreviousNextViewImpl *this$0_;
   ASMeasureEvent *measureFinished_;
   ASOnLayoutEvent *onLayoutEvent_;
+  id<JavaUtilList> overlays_;
   jint mMaxWidth_;
   jint mMaxHeight_;
   id<JavaUtilMap> templates_;
@@ -95,6 +97,7 @@ __attribute__((unused)) static ADFrameLayout_LayoutParams *ASIQPreviousNextViewI
 
 J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt, measureFinished_, ASMeasureEvent *)
 J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt, onLayoutEvent_, ASOnLayoutEvent *)
+J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt, overlays_, id<JavaUtilList>)
 J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt, templates_, id<JavaUtilMap>)
 
 @interface ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder () {
@@ -592,9 +595,12 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQPreviousNextViewImpl)
                     withInt:(jint)b {
   [super onLayoutWithBoolean:changed withInt:l withInt:t withInt:r withInt:b];
   ASViewImpl_setDrawableBoundsWithASIWidget_withInt_withInt_withInt_withInt_(this$0_, l, t, r, b);
-  ASViewImpl_nativeMakeFrameWithId_withInt_withInt_withInt_withInt_([this$0_ asNativeWidget], l, t, r, b);
+  if (![self isOverlay]) {
+    ASViewImpl_nativeMakeFrameWithId_withInt_withInt_withInt_withInt_([this$0_ asNativeWidget], l, t, r, b);
+  }
   [this$0_ replayBufferedEvents];
   ASViewImpl_redrawDrawablesWithASIWidget_(this$0_);
+  overlays_ = ASViewImpl_drawOverlayWithASIWidget_withJavaUtilList_(this$0_, overlays_);
   id<ASIWidgetLifeCycleListener> listener = [this$0_ getListener];
   if (listener != nil) {
     [((ASOnLayoutEvent *) nil_chk(onLayoutEvent_)) setBWithInt:b];
@@ -712,7 +718,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQPreviousNextViewImpl)
     [self setState4WithId:value];
     return;
   }
-  [this$0_ setAttributeWithNSString:name withId:value withBoolean:true];
+  [this$0_ setAttributeWithNSString:name withId:value withBoolean:!([value isKindOfClass:[NSString class]])];
 }
 
 - (void)setVisibilityWithInt:(jint)visibility {
@@ -865,12 +871,13 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQPreviousNextViewImpl)
     { "this$0_", "LASIQPreviousNextViewImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
     { "measureFinished_", "LASMeasureEvent;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "onLayoutEvent_", "LASOnLayoutEvent;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
+    { "overlays_", "LJavaUtilList;", .constantValue.asLong = 0, 0x2, -1, -1, 37, -1 },
     { "mMaxWidth_", "I", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "mMaxHeight_", "I", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "templates_", "LJavaUtilMap;", .constantValue.asLong = 0, 0x2, -1, -1, 37, -1 },
+    { "templates_", "LJavaUtilMap;", .constantValue.asLong = 0, 0x2, -1, -1, 38, -1 },
   };
-  static const void *ptrTable[] = { "setMaxWidth", "I", "setMaxHeight", "LASIQPreviousNextViewImpl;", "onMeasure", "II", "onLayout", "ZIIII", "execute", "LNSString;[LNSObject;", "updateMeasuredDimension", "newInstance", "LASIWidget;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;", "()Ljava/util/List<Ljava/lang/String;>;", "getAttribute", "LASWidgetAttribute;", "inflateView", "LNSString;", "getLocationOnScreen", "[I", "getWindowVisibleDisplayFrame", "LADRect;", "offsetTopAndBottom", "offsetLeftAndRight", "setMyAttribute", "LNSString;LNSObject;", "setVisibility", "setState0", "LNSObject;", "setState1", "setState2", "setState3", "setState4", "endViewTransition", "LADView;", "Ljava/util/Map<Ljava/lang/String;Lcom/ashera/widget/IWidget;>;" };
-  static const J2ObjcClassInfo _ASIQPreviousNextViewImpl_IQPreviousNextViewExt = { "IQPreviousNextViewExt", "com.ashera.iqkeyboardmanager", ptrTable, methods, fields, 7, 0x1, 38, 6, 3, -1, -1, -1, -1 };
+  static const void *ptrTable[] = { "setMaxWidth", "I", "setMaxHeight", "LASIQPreviousNextViewImpl;", "onMeasure", "II", "onLayout", "ZIIII", "execute", "LNSString;[LNSObject;", "updateMeasuredDimension", "newInstance", "LASIWidget;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;", "()Ljava/util/List<Ljava/lang/String;>;", "getAttribute", "LASWidgetAttribute;", "inflateView", "LNSString;", "getLocationOnScreen", "[I", "getWindowVisibleDisplayFrame", "LADRect;", "offsetTopAndBottom", "offsetLeftAndRight", "setMyAttribute", "LNSString;LNSObject;", "setVisibility", "setState0", "LNSObject;", "setState1", "setState2", "setState3", "setState4", "endViewTransition", "LADView;", "Ljava/util/List<Lcom/ashera/widget/IWidget;>;", "Ljava/util/Map<Ljava/lang/String;Lcom/ashera/widget/IWidget;>;" };
+  static const J2ObjcClassInfo _ASIQPreviousNextViewImpl_IQPreviousNextViewExt = { "IQPreviousNextViewExt", "com.ashera.iqkeyboardmanager", ptrTable, methods, fields, 7, 0x1, 38, 7, 3, -1, -1, -1, -1 };
   return &_ASIQPreviousNextViewImpl_IQPreviousNextViewExt;
 }
 
