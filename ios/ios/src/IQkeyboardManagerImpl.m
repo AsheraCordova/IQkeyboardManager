@@ -40,13 +40,9 @@
 @protocol JavaUtilMap;
 
 
-#pragma clang diagnostic ignored "-Wincomplete-implementation"
-
 @interface ASIQkeyboardManagerImpl () {
  @public
   id<ASIWidget> w_;
-  ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *builder_;
-  ASIQkeyboardManagerImpl_IQkeyboardManagerBean *bean_;
   NSString *nextFocusUpId_;
   NSString *nextFocusDownId_;
   jboolean listenerAdded_;
@@ -84,8 +80,6 @@
 @end
 
 J2OBJC_FIELD_SETTER(ASIQkeyboardManagerImpl, w_, id<ASIWidget>)
-J2OBJC_FIELD_SETTER(ASIQkeyboardManagerImpl, builder_, ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)
-J2OBJC_FIELD_SETTER(ASIQkeyboardManagerImpl, bean_, ASIQkeyboardManagerImpl_IQkeyboardManagerBean *)
 J2OBJC_FIELD_SETTER(ASIQkeyboardManagerImpl, nextFocusUpId_, NSString *)
 J2OBJC_FIELD_SETTER(ASIQkeyboardManagerImpl, nextFocusDownId_, NSString *)
 J2OBJC_FIELD_SETTER(ASIQkeyboardManagerImpl, editorAction_, NSString *)
@@ -168,20 +162,6 @@ __attribute__((unused)) static ASIQkeyboardManagerImpl_OnEditorActionListener *c
 
 J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl_OnEditorActionListener)
 
-@interface ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder () {
- @public
-  ASIQkeyboardManagerImpl *this$0_;
-}
-
-@end
-
-@interface ASIQkeyboardManagerImpl_IQkeyboardManagerBean () {
- @public
-  ASIQkeyboardManagerImpl *this$0_;
-}
-
-@end
-
 NSString *ASIQkeyboardManagerImpl_LOCAL_NAME = @"IQkeyboardManager";
 
 @implementation ASIQkeyboardManagerImpl
@@ -248,20 +228,6 @@ J2OBJC_IGNORE_DESIGNATED_END
   switch (JreIndexOfStr([((ASWidgetAttribute *) nil_chk(key)) getAttributeName], (id[]){  }, 0)) {
   }
   return nil;
-}
-
-- (ASIQkeyboardManagerImpl_IQkeyboardManagerBean *)getBean {
-  if (bean_ == nil) {
-    bean_ = new_ASIQkeyboardManagerImpl_IQkeyboardManagerBean_initWithASIQkeyboardManagerImpl_(self);
-  }
-  return bean_;
-}
-
-- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)getBuilder {
-  if (builder_ == nil) {
-    builder_ = new_ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder_initWithASIQkeyboardManagerImpl_(self);
-  }
-  return builder_;
 }
 
 - (void)setOnEditorActionWithId:(id)objValue {
@@ -355,8 +321,6 @@ J2OBJC_IGNORE_DESIGNATED_END
     { NULL, "V", 0x1, 2, 3, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 4, 5, -1, -1, -1, -1 },
     { NULL, "LNSObject;", 0x1, 6, 7, -1, -1, -1, -1 },
-    { NULL, "LASIQkeyboardManagerImpl_IQkeyboardManagerBean;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder;", 0x1, -1, -1, -1, -1, -1, -1 },
     { NULL, "V", 0x2, 8, 9, -1, -1, -1, -1 },
     { NULL, "V", 0x2, 10, 11, -1, -1, -1, -1 },
     { NULL, "V", 0x2, 12, 11, -1, -1, -1, -1 },
@@ -380,33 +344,29 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[4].selector = @selector(loadAttributesWithNSString:);
   methods[5].selector = @selector(setAttributeWithASWidgetAttribute:withNSString:withId:withASILifeCycleDecorator:);
   methods[6].selector = @selector(getAttributeWithASWidgetAttribute:withASILifeCycleDecorator:);
-  methods[7].selector = @selector(getBean);
-  methods[8].selector = @selector(getBuilder);
-  methods[9].selector = @selector(setOnEditorActionWithId:);
-  methods[10].selector = @selector(setNextFocusUpWithNSString:withId:);
-  methods[11].selector = @selector(setNextFocusDownWithNSString:withId:);
-  methods[12].selector = @selector(nativeAddPreviousNextDoneOnKeyboardWithTargetWithId:);
-  methods[13].selector = @selector(forceFocusOnViewWithNSString:);
-  methods[14].selector = @selector(forceFocusOnViewUp);
-  methods[15].selector = @selector(forceFocusOnViewDown);
-  methods[16].selector = @selector(addKeyboardListener);
-  methods[17].selector = @selector(findEditableTextFieldWithId:);
-  methods[18].selector = @selector(nativeForceFocusWithId:);
-  methods[19].selector = @selector(nativeLooseFocusWithId:);
-  methods[20].selector = @selector(handleEditorAction);
+  methods[7].selector = @selector(setOnEditorActionWithId:);
+  methods[8].selector = @selector(setNextFocusUpWithNSString:withId:);
+  methods[9].selector = @selector(setNextFocusDownWithNSString:withId:);
+  methods[10].selector = @selector(nativeAddPreviousNextDoneOnKeyboardWithTargetWithId:);
+  methods[11].selector = @selector(forceFocusOnViewWithNSString:);
+  methods[12].selector = @selector(forceFocusOnViewUp);
+  methods[13].selector = @selector(forceFocusOnViewDown);
+  methods[14].selector = @selector(addKeyboardListener);
+  methods[15].selector = @selector(findEditableTextFieldWithId:);
+  methods[16].selector = @selector(nativeForceFocusWithId:);
+  methods[17].selector = @selector(nativeLooseFocusWithId:);
+  methods[18].selector = @selector(handleEditorAction);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 18, -1, -1 },
     { "w_", "LASIWidget;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "builder_", "LASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "bean_", "LASIQkeyboardManagerImpl_IQkeyboardManagerBean;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "nextFocusUpId_", "LNSString;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "nextFocusDownId_", "LNSString;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "listenerAdded_", "Z", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "editorAction_", "LNSString;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "LASIWidget;", "newInstance", "loadAttributes", "LNSString;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;LASILifeCycleDecorator;", "getAttribute", "LASWidgetAttribute;LASILifeCycleDecorator;", "setOnEditorAction", "LNSObject;", "setNextFocusUp", "LNSString;LNSObject;", "setNextFocusDown", "nativeAddPreviousNextDoneOnKeyboardWithTarget", "forceFocusOnView", "findEditableTextField", "nativeForceFocus", "nativeLooseFocus", &ASIQkeyboardManagerImpl_LOCAL_NAME, "LASIQkeyboardManagerImpl_OnEditorActionListener;LASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder;LASIQkeyboardManagerImpl_IQkeyboardManagerBean;" };
-  static const J2ObjcClassInfo _ASIQkeyboardManagerImpl = { "IQkeyboardManagerImpl", "com.ashera.iqkeyboardmanager", ptrTable, methods, fields, 7, 0x1, 21, 8, -1, 19, -1, -1, -1 };
+  static const void *ptrTable[] = { "LASIWidget;", "newInstance", "loadAttributes", "LNSString;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;LASILifeCycleDecorator;", "getAttribute", "LASWidgetAttribute;LASILifeCycleDecorator;", "setOnEditorAction", "LNSObject;", "setNextFocusUp", "LNSString;LNSObject;", "setNextFocusDown", "nativeAddPreviousNextDoneOnKeyboardWithTarget", "forceFocusOnView", "findEditableTextField", "nativeForceFocus", "nativeLooseFocus", &ASIQkeyboardManagerImpl_LOCAL_NAME, "LASIQkeyboardManagerImpl_OnEditorActionListener;" };
+  static const J2ObjcClassInfo _ASIQkeyboardManagerImpl = { "IQkeyboardManagerImpl", "com.ashera.iqkeyboardmanager", ptrTable, methods, fields, 7, 0x1, 19, 6, -1, 19, -1, -1, -1 };
   return &_ASIQkeyboardManagerImpl;
 }
 
@@ -660,147 +620,3 @@ ASIQkeyboardManagerImpl_OnEditorActionListener *create_ASIQkeyboardManagerImpl_O
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQkeyboardManagerImpl_OnEditorActionListener)
-
-@implementation ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder
-
-- (instancetype)initWithASIQkeyboardManagerImpl:(ASIQkeyboardManagerImpl *)outer$ {
-  ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder_initWithASIQkeyboardManagerImpl_(self, outer$);
-  return self;
-}
-
-- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)executeWithBoolean:(jboolean)setter {
-  if (setter) {
-    [((id<ASIWidget>) nil_chk(this$0_->w_)) executeCommandWithJavaUtilMap:command_ withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_SETTER_METHOD];
-    [((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(this$0_->w_)) getFragment])) remeasure];
-  }
-  [((id<ASIWidget>) nil_chk(this$0_->w_)) executeCommandWithJavaUtilMap:command_ withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_GETTER_METHOD];
-  return self;
-}
-
-- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setNextFocusDownWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"nextFocusDown"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setNextFocusUpWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"nextFocusUp"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-- (ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *)setOnEditorActionWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"onEditorAction"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "LASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder;", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "LASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder;", 0x1, 3, 4, -1, -1, -1, -1 },
-    { NULL, "LASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder;", 0x1, 5, 4, -1, -1, -1, -1 },
-    { NULL, "LASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder;", 0x1, 6, 4, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASIQkeyboardManagerImpl:);
-  methods[1].selector = @selector(executeWithBoolean:);
-  methods[2].selector = @selector(setNextFocusDownWithNSString:);
-  methods[3].selector = @selector(setNextFocusUpWithNSString:);
-  methods[4].selector = @selector(setOnEditorActionWithNSString:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASIQkeyboardManagerImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASIQkeyboardManagerImpl;", "execute", "Z", "setNextFocusDown", "LNSString;", "setNextFocusUp", "setOnEditorAction", "Lcom/ashera/layout/ViewImpl$ViewCommandBuilder<Lcom/ashera/iqkeyboardmanager/IQkeyboardManagerImpl$IQkeyboardManagerCommandBuilder;>;" };
-  static const J2ObjcClassInfo _ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder = { "IQkeyboardManagerCommandBuilder", "com.ashera.iqkeyboardmanager", ptrTable, methods, fields, 7, 0x1, 5, 1, 0, -1, -1, 7, -1 };
-  return &_ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder;
-}
-
-@end
-
-void ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder_initWithASIQkeyboardManagerImpl_(ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *self, ASIQkeyboardManagerImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewImpl_ViewCommandBuilder_init(self);
-}
-
-ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *new_ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder_initWithASIQkeyboardManagerImpl_(ASIQkeyboardManagerImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder, initWithASIQkeyboardManagerImpl_, outer$)
-}
-
-ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *create_ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder_initWithASIQkeyboardManagerImpl_(ASIQkeyboardManagerImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder, initWithASIQkeyboardManagerImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder)
-
-@implementation ASIQkeyboardManagerImpl_IQkeyboardManagerBean
-
-- (instancetype)initWithASIQkeyboardManagerImpl:(ASIQkeyboardManagerImpl *)outer$ {
-  ASIQkeyboardManagerImpl_IQkeyboardManagerBean_initWithASIQkeyboardManagerImpl_(self, outer$);
-  return self;
-}
-
-- (void)setNextFocusDownWithNSString:(NSString *)value {
-  (void) [((ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *) nil_chk([((ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *) nil_chk([((ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setNextFocusDownWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setNextFocusUpWithNSString:(NSString *)value {
-  (void) [((ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *) nil_chk([((ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *) nil_chk([((ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setNextFocusUpWithNSString:value])) executeWithBoolean:true];
-}
-
-- (void)setOnEditorActionWithNSString:(NSString *)value {
-  (void) [((ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *) nil_chk([((ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *) nil_chk([((ASIQkeyboardManagerImpl_IQkeyboardManagerCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setOnEditorActionWithNSString:value])) executeWithBoolean:true];
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 3, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 4, 2, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASIQkeyboardManagerImpl:);
-  methods[1].selector = @selector(setNextFocusDownWithNSString:);
-  methods[2].selector = @selector(setNextFocusUpWithNSString:);
-  methods[3].selector = @selector(setOnEditorActionWithNSString:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASIQkeyboardManagerImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASIQkeyboardManagerImpl;", "setNextFocusDown", "LNSString;", "setNextFocusUp", "setOnEditorAction" };
-  static const J2ObjcClassInfo _ASIQkeyboardManagerImpl_IQkeyboardManagerBean = { "IQkeyboardManagerBean", "com.ashera.iqkeyboardmanager", ptrTable, methods, fields, 7, 0x1, 4, 1, 0, -1, -1, -1, -1 };
-  return &_ASIQkeyboardManagerImpl_IQkeyboardManagerBean;
-}
-
-@end
-
-void ASIQkeyboardManagerImpl_IQkeyboardManagerBean_initWithASIQkeyboardManagerImpl_(ASIQkeyboardManagerImpl_IQkeyboardManagerBean *self, ASIQkeyboardManagerImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewImpl_ViewBean_initWithASIWidget_(self, outer$->w_);
-}
-
-ASIQkeyboardManagerImpl_IQkeyboardManagerBean *new_ASIQkeyboardManagerImpl_IQkeyboardManagerBean_initWithASIQkeyboardManagerImpl_(ASIQkeyboardManagerImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASIQkeyboardManagerImpl_IQkeyboardManagerBean, initWithASIQkeyboardManagerImpl_, outer$)
-}
-
-ASIQkeyboardManagerImpl_IQkeyboardManagerBean *create_ASIQkeyboardManagerImpl_IQkeyboardManagerBean_initWithASIQkeyboardManagerImpl_(ASIQkeyboardManagerImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASIQkeyboardManagerImpl_IQkeyboardManagerBean, initWithASIQkeyboardManagerImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQkeyboardManagerImpl_IQkeyboardManagerBean)

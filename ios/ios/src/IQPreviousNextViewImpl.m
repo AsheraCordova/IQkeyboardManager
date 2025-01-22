@@ -6,7 +6,6 @@
 #include "BaseHasWidgets.h"
 #include "FrameLayout.h"
 #include "HasWidgets.h"
-#include "IAttributable.h"
 #include "IFragment.h"
 #include "ILifeCycleDecorator.h"
 #include "IOSClass.h"
@@ -45,16 +44,11 @@
 
 
 #pragma clang diagnostic ignored "-Wprotocol"
-#pragma clang diagnostic ignored "-Wincomplete-implementation"
 
 @interface ASIQPreviousNextViewImpl () {
  @public
   id uiView_;
   ADFrameLayout *frameLayout_;
-  ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *builder_;
-  ASIQPreviousNextViewImpl_IQPreviousNextViewBean *bean_;
-  ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *paramsBuilder_;
-  ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean *paramsBean_;
 }
 
 - (void)setWidgetOnNativeClass;
@@ -69,10 +63,6 @@
 
 J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl, uiView_, id)
 J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl, frameLayout_, ADFrameLayout *)
-J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl, builder_, ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)
-J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl, bean_, ASIQPreviousNextViewImpl_IQPreviousNextViewBean *)
-J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl, paramsBuilder_, ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *)
-J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl, paramsBean_, ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean *)
 
 __attribute__((unused)) static void ASIQPreviousNextViewImpl_setWidgetOnNativeClass(ASIQPreviousNextViewImpl *self);
 
@@ -99,27 +89,6 @@ J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt, measureFinis
 J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt, onLayoutEvent_, ASOnLayoutEvent *)
 J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt, overlays_, id<JavaUtilList>)
 J2OBJC_FIELD_SETTER(ASIQPreviousNextViewImpl_IQPreviousNextViewExt, templates_, id<JavaUtilMap>)
-
-@interface ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder () {
- @public
-  ASIQPreviousNextViewImpl *this$0_;
-}
-
-@end
-
-@interface ASIQPreviousNextViewImpl_IQPreviousNextViewBean () {
- @public
-  ASIQPreviousNextViewImpl *this$0_;
-}
-
-@end
-
-@interface ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean () {
- @public
-  ASIQPreviousNextViewImpl *this$0_;
-}
-
-@end
 
 @interface ASIQPreviousNextViewImpl_$Lambda$1 : NSObject < JavaLangRunnable > {
  @public
@@ -351,38 +320,6 @@ J2OBJC_IGNORE_DESIGNATED_END
   [((ADView *) nil_chk(((ADView *) cast_chk([self asWidget], [ADView class])))) setVisibilityWithInt:b ? ADView_VISIBLE : ADView_GONE];
 }
 
-- (id)getPluginWithNSString:(NSString *)plugin {
-  return [((id<ASIAttributable>) nil_chk(ASWidgetFactory_getAttributableWithNSString_(plugin))) newInstanceWithASIWidget:self];
-}
-
-- (ASIQPreviousNextViewImpl_IQPreviousNextViewBean *)getBean {
-  if (bean_ == nil) {
-    bean_ = new_ASIQPreviousNextViewImpl_IQPreviousNextViewBean_initWithASIQPreviousNextViewImpl_(self);
-  }
-  return bean_;
-}
-
-- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)getBuilder {
-  if (builder_ == nil) {
-    builder_ = new_ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder_initWithASIQPreviousNextViewImpl_(self);
-  }
-  return builder_;
-}
-
-- (ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean *)getParamsBean {
-  if (paramsBean_ == nil) {
-    paramsBean_ = new_ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean_initWithASIQPreviousNextViewImpl_(self);
-  }
-  return paramsBean_;
-}
-
-- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *)getParamsBuilder {
-  if (paramsBuilder_ == nil) {
-    paramsBuilder_ = new_ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder_initWithASIQPreviousNextViewImpl_(self);
-  }
-  return paramsBuilder_;
-}
-
 - (void)nativeCreateWithJavaUtilMap:(id<JavaUtilMap>)params {
   ASIQPreviousNextView* uiView = [ASIQPreviousNextView new];
   uiView.backgroundColor = [UIColor clearColor];
@@ -416,12 +353,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     { NULL, "V", 0x1, -1, -1, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 24, 1, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 25, 26, -1, -1, -1, -1 },
-    { NULL, "LNSObject;", 0x1, 27, 1, -1, -1, -1, -1 },
-    { NULL, "LASIQPreviousNextViewImpl_IQPreviousNextViewBean;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "V", 0x101, 28, 29, -1, 30, -1, -1 },
+    { NULL, "V", 0x101, 27, 28, -1, 29, -1, -1 },
   };
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
@@ -451,25 +383,16 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[22].selector = @selector(invalidate);
   methods[23].selector = @selector(setIdWithNSString:);
   methods[24].selector = @selector(setVisibleWithBoolean:);
-  methods[25].selector = @selector(getPluginWithNSString:);
-  methods[26].selector = @selector(getBean);
-  methods[27].selector = @selector(getBuilder);
-  methods[28].selector = @selector(getParamsBean);
-  methods[29].selector = @selector(getParamsBuilder);
-  methods[30].selector = @selector(nativeCreateWithJavaUtilMap:);
+  methods[25].selector = @selector(nativeCreateWithJavaUtilMap:);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "uiView_", "LNSObject;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 31, -1, -1 },
-    { "GROUP_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 32, -1, -1 },
+    { "LOCAL_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 30, -1, -1 },
+    { "GROUP_NAME", "LNSString;", .constantValue.asLong = 0, 0x19, -1, 31, -1, -1 },
     { "frameLayout_", "LADFrameLayout;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "builder_", "LASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "bean_", "LASIQPreviousNextViewImpl_IQPreviousNextViewBean;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "paramsBuilder_", "LASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
-    { "paramsBean_", "LASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "loadAttributes", "LNSString;", "LNSString;LNSString;", "create", "LASIFragment;LJavaUtilMap;", "(Lcom/ashera/core/IFragment;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "remove", "LASIWidget;", "I", "nativeRemoveView", "add", "LASIWidget;I", "createLayoutParams", "LADView;", "getLayoutParams", "setChildAttribute", "LASIWidget;LASWidgetAttribute;LNSString;LNSObject;", "getChildAttribute", "LASIWidget;LASWidgetAttribute;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;LASILifeCycleDecorator;", "getAttribute", "LASWidgetAttribute;LASILifeCycleDecorator;", "checkIosVersion", "setId", "setVisible", "Z", "getPlugin", "nativeCreate", "LJavaUtilMap;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", &ASIQPreviousNextViewImpl_LOCAL_NAME, &ASIQPreviousNextViewImpl_GROUP_NAME, "LASIQPreviousNextViewImpl_IQPreviousNextViewExt;LASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder;LASIQPreviousNextViewImpl_IQPreviousNextViewBean;LASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean;LASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder;" };
-  static const J2ObjcClassInfo _ASIQPreviousNextViewImpl = { "IQPreviousNextViewImpl", "com.ashera.iqkeyboardmanager", ptrTable, methods, fields, 7, 0x1, 31, 8, -1, 33, -1, -1, -1 };
+  static const void *ptrTable[] = { "loadAttributes", "LNSString;", "LNSString;LNSString;", "create", "LASIFragment;LJavaUtilMap;", "(Lcom/ashera/core/IFragment;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", "remove", "LASIWidget;", "I", "nativeRemoveView", "add", "LASIWidget;I", "createLayoutParams", "LADView;", "getLayoutParams", "setChildAttribute", "LASIWidget;LASWidgetAttribute;LNSString;LNSObject;", "getChildAttribute", "LASIWidget;LASWidgetAttribute;", "setAttribute", "LASWidgetAttribute;LNSString;LNSObject;LASILifeCycleDecorator;", "getAttribute", "LASWidgetAttribute;LASILifeCycleDecorator;", "checkIosVersion", "setId", "setVisible", "Z", "nativeCreate", "LJavaUtilMap;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", &ASIQPreviousNextViewImpl_LOCAL_NAME, &ASIQPreviousNextViewImpl_GROUP_NAME, "LASIQPreviousNextViewImpl_IQPreviousNextViewExt;" };
+  static const J2ObjcClassInfo _ASIQPreviousNextViewImpl = { "IQPreviousNextViewImpl", "com.ashera.iqkeyboardmanager", ptrTable, methods, fields, 7, 0x1, 26, 4, -1, 32, -1, -1, -1 };
   return &_ASIQPreviousNextViewImpl;
 }
 
@@ -903,265 +826,6 @@ ASIQPreviousNextViewImpl_IQPreviousNextViewExt *create_ASIQPreviousNextViewImpl_
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQPreviousNextViewImpl_IQPreviousNextViewExt)
-
-@implementation ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder
-
-- (instancetype)initWithASIQPreviousNextViewImpl:(ASIQPreviousNextViewImpl *)outer$ {
-  ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder_initWithASIQPreviousNextViewImpl_(self, outer$);
-  return self;
-}
-
-- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)executeWithBoolean:(jboolean)setter {
-  if (setter) {
-    [this$0_ executeCommandWithJavaUtilMap:command_ withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_SETTER_METHOD];
-    [((id<ASIFragment>) nil_chk([this$0_ getFragment])) remeasure];
-  }
-  [this$0_ executeCommandWithJavaUtilMap:command_ withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_GETTER_METHOD];
-  return self;
-}
-
-- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)tryGetMeasureAllChildren {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"measureAllChildren"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"getter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderGet" withId:JavaLangInteger_valueOfWithInt_(++orderGet_)];
-  return self;
-}
-
-- (id)isMeasureAllChildren {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"measureAllChildren"];
-  return [((id<JavaUtilMap>) nil_chk(attrs)) getWithId:@"commandReturnValue"];
-}
-
-- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *)setMeasureAllChildrenWithBoolean:(jboolean)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"measureAllChildren"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:JavaLangBoolean_valueOfWithBoolean_(value)];
-  return self;
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "LASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder;", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "LASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LNSObject;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder;", 0x1, 3, 2, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASIQPreviousNextViewImpl:);
-  methods[1].selector = @selector(executeWithBoolean:);
-  methods[2].selector = @selector(tryGetMeasureAllChildren);
-  methods[3].selector = @selector(isMeasureAllChildren);
-  methods[4].selector = @selector(setMeasureAllChildrenWithBoolean:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASIQPreviousNextViewImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASIQPreviousNextViewImpl;", "execute", "Z", "setMeasureAllChildren", "Lcom/ashera/layout/ViewGroupImpl$ViewGroupCommandBuilder<Lcom/ashera/iqkeyboardmanager/IQPreviousNextViewImpl$IQPreviousNextViewCommandBuilder;>;" };
-  static const J2ObjcClassInfo _ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder = { "IQPreviousNextViewCommandBuilder", "com.ashera.iqkeyboardmanager", ptrTable, methods, fields, 7, 0x1, 5, 1, 0, -1, -1, 4, -1 };
-  return &_ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder;
-}
-
-@end
-
-void ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder_initWithASIQPreviousNextViewImpl_(ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *self, ASIQPreviousNextViewImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewGroupImpl_ViewGroupCommandBuilder_init(self);
-}
-
-ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *new_ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder_initWithASIQPreviousNextViewImpl_(ASIQPreviousNextViewImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder, initWithASIQPreviousNextViewImpl_, outer$)
-}
-
-ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *create_ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder_initWithASIQPreviousNextViewImpl_(ASIQPreviousNextViewImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder, initWithASIQPreviousNextViewImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder)
-
-@implementation ASIQPreviousNextViewImpl_IQPreviousNextViewBean
-
-- (instancetype)initWithASIQPreviousNextViewImpl:(ASIQPreviousNextViewImpl *)outer$ {
-  ASIQPreviousNextViewImpl_IQPreviousNextViewBean_initWithASIQPreviousNextViewImpl_(self, outer$);
-  return self;
-}
-
-- (id)isMeasureAllChildren {
-  return [((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *) nil_chk([((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *) nil_chk([((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *) nil_chk([((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) tryGetMeasureAllChildren])) executeWithBoolean:false])) isMeasureAllChildren];
-}
-
-- (void)setMeasureAllChildrenWithBoolean:(jboolean)value {
-  (void) [((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *) nil_chk([((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *) nil_chk([((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandBuilder *) nil_chk([this$0_ getBuilder])) reset])) setMeasureAllChildrenWithBoolean:value])) executeWithBoolean:true];
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "LNSObject;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 1, 2, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASIQPreviousNextViewImpl:);
-  methods[1].selector = @selector(isMeasureAllChildren);
-  methods[2].selector = @selector(setMeasureAllChildrenWithBoolean:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASIQPreviousNextViewImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASIQPreviousNextViewImpl;", "setMeasureAllChildren", "Z" };
-  static const J2ObjcClassInfo _ASIQPreviousNextViewImpl_IQPreviousNextViewBean = { "IQPreviousNextViewBean", "com.ashera.iqkeyboardmanager", ptrTable, methods, fields, 7, 0x1, 3, 1, 0, -1, -1, -1, -1 };
-  return &_ASIQPreviousNextViewImpl_IQPreviousNextViewBean;
-}
-
-@end
-
-void ASIQPreviousNextViewImpl_IQPreviousNextViewBean_initWithASIQPreviousNextViewImpl_(ASIQPreviousNextViewImpl_IQPreviousNextViewBean *self, ASIQPreviousNextViewImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewGroupImpl_ViewGroupBean_initWithASIWidget_(self, outer$);
-}
-
-ASIQPreviousNextViewImpl_IQPreviousNextViewBean *new_ASIQPreviousNextViewImpl_IQPreviousNextViewBean_initWithASIQPreviousNextViewImpl_(ASIQPreviousNextViewImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASIQPreviousNextViewImpl_IQPreviousNextViewBean, initWithASIQPreviousNextViewImpl_, outer$)
-}
-
-ASIQPreviousNextViewImpl_IQPreviousNextViewBean *create_ASIQPreviousNextViewImpl_IQPreviousNextViewBean_initWithASIQPreviousNextViewImpl_(ASIQPreviousNextViewImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASIQPreviousNextViewImpl_IQPreviousNextViewBean, initWithASIQPreviousNextViewImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQPreviousNextViewImpl_IQPreviousNextViewBean)
-
-@implementation ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean
-
-- (instancetype)initWithASIQPreviousNextViewImpl:(ASIQPreviousNextViewImpl *)outer$ {
-  ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean_initWithASIQPreviousNextViewImpl_(self, outer$);
-  return self;
-}
-
-- (id)getLayoutGravityWithASIWidget:(id<ASIWidget>)w {
-  id<JavaUtilMap> layoutParams = new_JavaUtilHashMap_init();
-  id<JavaUtilMap> command = [((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *) nil_chk([((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *) nil_chk([((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *) nil_chk([this$0_ getParamsBuilder])) reset])) tryGetLayoutGravity])) getCommand];
-  (void) [layoutParams putWithId:@"layoutParams" withId:command];
-  [((id<ASIWidget>) nil_chk(w)) executeCommandWithJavaUtilMap:layoutParams withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_GETTER_METHOD];
-  return [((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *) nil_chk([this$0_ getParamsBuilder])) getLayoutGravity];
-}
-
-- (void)setLayoutGravityWithASIWidget:(id<ASIWidget>)w
-                         withNSString:(NSString *)value {
-  id<JavaUtilMap> layoutParams = new_JavaUtilHashMap_init();
-  (void) [layoutParams putWithId:@"layoutParams" withId:[((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *) nil_chk([((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *) nil_chk([((ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *) nil_chk([this$0_ getParamsBuilder])) reset])) setLayoutGravityWithNSString:value])) getCommand]];
-  [((id<ASIWidget>) nil_chk(w)) executeCommandWithJavaUtilMap:layoutParams withASIWidget_CommandCallBack:nil withInt:ASIWidget_COMMAND_EXEC_SETTER_METHOD];
-  [((id<ASIFragment>) nil_chk([w getFragment])) remeasure];
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "LNSObject;", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 3, 4, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASIQPreviousNextViewImpl:);
-  methods[1].selector = @selector(getLayoutGravityWithASIWidget:);
-  methods[2].selector = @selector(setLayoutGravityWithASIWidget:withNSString:);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "this$0_", "LASIQPreviousNextViewImpl;", .constantValue.asLong = 0, 0x1012, -1, -1, -1, -1 },
-  };
-  static const void *ptrTable[] = { "LASIQPreviousNextViewImpl;", "getLayoutGravity", "LASIWidget;", "setLayoutGravity", "LASIWidget;LNSString;" };
-  static const J2ObjcClassInfo _ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean = { "IQPreviousNextViewParamsBean", "com.ashera.iqkeyboardmanager", ptrTable, methods, fields, 7, 0x1, 3, 1, 0, -1, -1, -1, -1 };
-  return &_ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean;
-}
-
-@end
-
-void ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean_initWithASIQPreviousNextViewImpl_(ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean *self, ASIQPreviousNextViewImpl *outer$) {
-  self->this$0_ = outer$;
-  ASViewGroupImpl_ViewGroupParamsBean_init(self);
-}
-
-ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean *new_ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean_initWithASIQPreviousNextViewImpl_(ASIQPreviousNextViewImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean, initWithASIQPreviousNextViewImpl_, outer$)
-}
-
-ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean *create_ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean_initWithASIQPreviousNextViewImpl_(ASIQPreviousNextViewImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean, initWithASIQPreviousNextViewImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQPreviousNextViewImpl_IQPreviousNextViewParamsBean)
-
-@implementation ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder
-
-- (instancetype)initWithASIQPreviousNextViewImpl:(ASIQPreviousNextViewImpl *)outer$ {
-  ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder_initWithASIQPreviousNextViewImpl_(self, outer$);
-  return self;
-}
-
-- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *)tryGetLayoutGravity {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"layout_gravity"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"getter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderGet" withId:JavaLangInteger_valueOfWithInt_(++orderGet_)];
-  return self;
-}
-
-- (id)getLayoutGravity {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"layout_gravity"];
-  return [((id<JavaUtilMap>) nil_chk(attrs)) getWithId:@"commandReturnValue"];
-}
-
-- (ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *)setLayoutGravityWithNSString:(NSString *)value {
-  id<JavaUtilMap> attrs = [self initCommandWithNSString:@"layout_gravity"];
-  (void) [((id<JavaUtilMap>) nil_chk(attrs)) putWithId:@"type" withId:@"attribute"];
-  (void) [attrs putWithId:@"setter" withId:JavaLangBoolean_valueOfWithBoolean_(true)];
-  (void) [attrs putWithId:@"orderSet" withId:JavaLangInteger_valueOfWithInt_(++orderSet_)];
-  (void) [attrs putWithId:@"value" withId:value];
-  return self;
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
-    { NULL, "LASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LNSObject;", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder;", 0x1, 1, 2, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  #pragma clang diagnostic ignored "-Wundeclared-selector"
-  methods[0].selector = @selector(initWithASIQPreviousNextViewImpl:);
-  methods[1].selector = @selector(tryGetLayoutGravity);
-  methods[2].selector = @selector(getLayoutGravity);
-  methods[3].selector = @selector(setLayoutGravityWithNSString:);
-  #pragma clang diagnostic pop
-  static const void *ptrTable[] = { "LASIQPreviousNextViewImpl;", "setLayoutGravity", "LNSString;", "Lcom/ashera/layout/ViewGroupImpl$ViewGroupCommandParamsBuilder<Lcom/ashera/iqkeyboardmanager/IQPreviousNextViewImpl$IQPreviousNextViewCommandParamsBuilder;>;" };
-  static const J2ObjcClassInfo _ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder = { "IQPreviousNextViewCommandParamsBuilder", "com.ashera.iqkeyboardmanager", ptrTable, methods, NULL, 7, 0x1, 4, 0, 0, -1, -1, 3, -1 };
-  return &_ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder;
-}
-
-@end
-
-void ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder_initWithASIQPreviousNextViewImpl_(ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *self, ASIQPreviousNextViewImpl *outer$) {
-  ASViewGroupImpl_ViewGroupCommandParamsBuilder_init(self);
-}
-
-ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *new_ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder_initWithASIQPreviousNextViewImpl_(ASIQPreviousNextViewImpl *outer$) {
-  J2OBJC_NEW_IMPL(ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder, initWithASIQPreviousNextViewImpl_, outer$)
-}
-
-ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder *create_ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder_initWithASIQPreviousNextViewImpl_(ASIQPreviousNextViewImpl *outer$) {
-  J2OBJC_CREATE_IMPL(ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder, initWithASIQPreviousNextViewImpl_, outer$)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQPreviousNextViewImpl_IQPreviousNextViewCommandParamsBuilder)
 
 @implementation ASIQPreviousNextViewImpl_$Lambda$1
 

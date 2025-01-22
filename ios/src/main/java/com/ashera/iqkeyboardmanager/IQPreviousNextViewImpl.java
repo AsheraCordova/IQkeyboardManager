@@ -79,6 +79,7 @@ public class IQPreviousNextViewImpl extends BaseHasWidgets {
 		
 		ViewGroupImpl.registerCommandConveter(this);
 		setWidgetOnNativeClass();
+		
 	}
 	private native void setWidgetOnNativeClass() /*-[
 		((ASUIView*) [self asNativeWidget]).widget = self;
@@ -463,7 +464,7 @@ return layoutParams.gravity;			}
 	@SuppressLint("NewApi")
 	@Override
 	public void setAttribute(WidgetAttribute key, String strValue, Object objValue, ILifeCycleDecorator decorator) {
-				ViewGroupImpl.setAttribute(this, key, strValue, objValue, decorator);
+				ViewGroupImpl.setAttribute(this,  key, strValue, objValue, decorator);
 		Object nativeWidget = asNativeWidget();
 		switch (key.getAttributeName()) {
 			case "measureAllChildren": {
@@ -538,135 +539,7 @@ break;			}
         ((View)asWidget()).setVisibility(b ? View.VISIBLE : View.GONE);
     }
 
-	
-private IQPreviousNextViewCommandBuilder builder;
-private IQPreviousNextViewBean bean;
-public Object getPlugin(String plugin) {
-	return WidgetFactory.getAttributable(plugin).newInstance(this);
-}
-public IQPreviousNextViewBean getBean() {
-	if (bean == null) {
-		bean = new IQPreviousNextViewBean();
-	}
-	return bean;
-}
-public IQPreviousNextViewCommandBuilder getBuilder() {
-	if (builder == null) {
-		builder = new IQPreviousNextViewCommandBuilder();
-	}
-	return builder;
-}
-
-
-public  class IQPreviousNextViewCommandBuilder extends com.ashera.layout.ViewGroupImpl.ViewGroupCommandBuilder <IQPreviousNextViewCommandBuilder> {
-    public IQPreviousNextViewCommandBuilder() {
-	}
-	
-	public IQPreviousNextViewCommandBuilder execute(boolean setter) {
-		if (setter) {
-			executeCommand(command, null, IWidget.COMMAND_EXEC_SETTER_METHOD);
-			getFragment().remeasure();
-		}
-		executeCommand(command, null, IWidget.COMMAND_EXEC_GETTER_METHOD);
-return this;	}
-
-public IQPreviousNextViewCommandBuilder tryGetMeasureAllChildren() {
-	Map<String, Object> attrs = initCommand("measureAllChildren");
-	attrs.put("type", "attribute");
-	attrs.put("getter", true);
-	attrs.put("orderGet", ++orderGet);
-return this;}
-
-public Object isMeasureAllChildren() {
-	Map<String, Object> attrs = initCommand("measureAllChildren");
-	return attrs.get("commandReturnValue");
-}
-public IQPreviousNextViewCommandBuilder setMeasureAllChildren(boolean value) {
-	Map<String, Object> attrs = initCommand("measureAllChildren");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-}
-public class IQPreviousNextViewBean extends com.ashera.layout.ViewGroupImpl.ViewGroupBean{
-		public IQPreviousNextViewBean() {
-			super(IQPreviousNextViewImpl.this);
-		}
-public Object isMeasureAllChildren() {
-	return getBuilder().reset().tryGetMeasureAllChildren().execute(false).isMeasureAllChildren(); 
-}
-public void setMeasureAllChildren(boolean value) {
-	getBuilder().reset().setMeasureAllChildren(value).execute(true);
-}
-
-}
-
-
-private IQPreviousNextViewCommandParamsBuilder paramsBuilder;
-private IQPreviousNextViewParamsBean paramsBean;
-
-public IQPreviousNextViewParamsBean getParamsBean() {
-	if (paramsBean == null) {
-		paramsBean = new IQPreviousNextViewParamsBean();
-	}
-	return paramsBean;
-}
-public IQPreviousNextViewCommandParamsBuilder getParamsBuilder() {
-	if (paramsBuilder == null) {
-		paramsBuilder = new IQPreviousNextViewCommandParamsBuilder();
-	}
-	return paramsBuilder;
-}
-
-
-
-public class IQPreviousNextViewParamsBean extends com.ashera.layout.ViewGroupImpl.ViewGroupParamsBean{
-public Object getLayoutGravity(IWidget w) {
-	java.util.Map<String, Object> layoutParams = new java.util.HashMap<String, Object>();
-	java.util.Map<String, Object> command = getParamsBuilder().reset().tryGetLayoutGravity().getCommand();
-	
-	layoutParams.put("layoutParams", command);
-	w.executeCommand(layoutParams, null, COMMAND_EXEC_GETTER_METHOD); 
-	return getParamsBuilder().getLayoutGravity();
-}
-public void setLayoutGravity(IWidget w, String value) {
-	java.util.Map<String, Object> layoutParams = new java.util.HashMap<String, Object>();
-	layoutParams.put("layoutParams", getParamsBuilder().reset().setLayoutGravity(value).getCommand());
-	w.executeCommand(layoutParams, null, COMMAND_EXEC_SETTER_METHOD);
-	w.getFragment().remeasure();
-}
-
-}
-
-
-
-
-
-public class IQPreviousNextViewCommandParamsBuilder extends com.ashera.layout.ViewGroupImpl.ViewGroupCommandParamsBuilder<IQPreviousNextViewCommandParamsBuilder>{
-public IQPreviousNextViewCommandParamsBuilder tryGetLayoutGravity() {
-	Map<String, Object> attrs = initCommand("layout_gravity");
-	attrs.put("type", "attribute");
-	attrs.put("getter", true);
-	attrs.put("orderGet", ++orderGet);
-return this;}
-
-public Object getLayoutGravity() {
-	Map<String, Object> attrs = initCommand("layout_gravity");
-	return attrs.get("commandReturnValue");
-}
-public IQPreviousNextViewCommandParamsBuilder setLayoutGravity(String value) {
-	Map<String, Object> attrs = initCommand("layout_gravity");
-	attrs.put("type", "attribute");
-	attrs.put("setter", true);
-	attrs.put("orderSet", ++orderSet);
-
-	attrs.put("value", value);
-return this;}
-}
-
-	//end - body
+		//end - body
 	public native void nativeCreate(Map<String, Object> params)/*-[
 		ASIQPreviousNextView* uiView = [ASIQPreviousNextView new];
 		uiView.backgroundColor = [UIColor clearColor];
