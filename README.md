@@ -2,7 +2,13 @@
 
 Adds support for IQKeyboardManager for ios platform.
 
-Important Links:
+# Installation
+To install the plugin use:
+```
+cordova plugin add https://github.com/AsheraCordova/IQkeyboardManager.git
+```
+
+## Important Links
 
 https://asheracordova.github.io/
 
@@ -10,10 +16,6 @@ https://asheracordova.github.io/doc/help-doc.html
 
 https://github.com/hackiftekhar/IQKeyboardManager
 
-To install the plugin use:
-```
-cordova plugin add https://github.com/AsheraCordova/IQkeyboardManager.git
-```
 
 ## IQPreviousNextView
 IQkeyboard manager does not work if you have nested views. In this case, IQkeyboard manager recommends adding a parent view which will ensure that the navigation is proper.
