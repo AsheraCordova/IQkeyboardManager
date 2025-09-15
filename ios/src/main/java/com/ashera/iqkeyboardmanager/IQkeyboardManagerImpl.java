@@ -172,6 +172,7 @@ public java.util.Map<String, Object> getOnEditorActionEventObj(TextView v,int ac
     obj.put("eventType", "editoraction");
     obj.put("fragmentId", w.getFragment().getFragmentId());
     obj.put("actionUrl", w.getFragment().getActionUrl());
+    obj.put("namespace", w.getFragment().getNamespace());
     
     if (w.getComponentId() != null) {
     	obj.put("componentId", w.getComponentId());
