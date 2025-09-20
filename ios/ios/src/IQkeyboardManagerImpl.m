@@ -3,6 +3,11 @@
 //  source: D:\Java\git\core-ios-widgets\IOSIQkeyboardManagerPlugin\src\main\java\com\ashera\iqkeyboardmanager\IQkeyboardManagerImpl.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "EventCommand.h"
 #include "EventCommandFactory.h"
 #include "EventExpressionParser.h"
@@ -37,7 +42,12 @@
 #import "ASUITextField.h"
 #import "ASUITextView.h"
 
-@protocol JavaUtilMap;
+
+@class NSString;
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
 
 
 @interface ASIQkeyboardManagerImpl () {
@@ -45,7 +55,7 @@
   id<ASIWidget> w_;
   NSString *nextFocusUpId_;
   NSString *nextFocusDownId_;
-  jboolean listenerAdded_;
+  bool listenerAdded_;
   NSString *editorAction_;
 }
 
@@ -131,12 +141,12 @@ __attribute__((unused)) static void ASIQkeyboardManagerImpl_handleEditorAction(A
                      withNSString:(NSString *)strValue
                      withNSString:(NSString *)action;
 
-- (jboolean)onEditorActionWithADTextView:(ADTextView *)v
-                                 withInt:(jint)actionId
-                          withADKeyEvent:(ADKeyEvent *)event;
+- (bool)onEditorActionWithADTextView:(ADTextView *)v
+                             withInt:(int32_t)actionId
+                      withADKeyEvent:(ADKeyEvent *)event;
 
 - (id<JavaUtilMap>)getOnEditorActionEventObjWithADTextView:(ADTextView *)v
-                                                   withInt:(jint)actionId
+                                                   withInt:(int32_t)actionId
                                             withADKeyEvent:(ADKeyEvent *)event;
 
 @end
@@ -161,6 +171,7 @@ __attribute__((unused)) static ASIQkeyboardManagerImpl_OnEditorActionListener *n
 __attribute__((unused)) static ASIQkeyboardManagerImpl_OnEditorActionListener *create_ASIQkeyboardManagerImpl_OnEditorActionListener_initWithASIWidget_withNSString_withNSString_(id<ASIWidget> w, NSString *strValue, NSString *action);
 
 J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl_OnEditorActionListener)
+
 
 NSString *ASIQkeyboardManagerImpl_LOCAL_NAME = @"IQkeyboardManager";
 
@@ -484,6 +495,8 @@ void ASIQkeyboardManagerImpl_handleEditorAction(ASIQkeyboardManagerImpl *self) {
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQkeyboardManagerImpl)
 
+J2OBJC_NAME_MAPPING(ASIQkeyboardManagerImpl, "com.ashera.iqkeyboardmanager", "AS")
+
 @implementation ASIQkeyboardManagerImpl_OnEditorActionListener
 
 - (NSString *)getAction {
@@ -503,10 +516,10 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQkeyboardManagerImpl)
   return self;
 }
 
-- (jboolean)onEditorActionWithADTextView:(ADTextView *)v
-                                 withInt:(jint)actionId
-                          withADKeyEvent:(ADKeyEvent *)event {
-  jboolean result = true;
+- (bool)onEditorActionWithADTextView:(ADTextView *)v
+                             withInt:(int32_t)actionId
+                      withADKeyEvent:(ADKeyEvent *)event {
+  bool result = true;
   if (action_ == nil || [action_ isEqual:@"onEditorAction"]) {
     [((id<ASIWidget>) nil_chk(w_)) syncModelFromUiToPojoWithNSString:@"onEditorAction"];
     id<JavaUtilMap> obj = [self getOnEditorActionEventObjWithADTextView:v withInt:actionId withADKeyEvent:event];
@@ -531,7 +544,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQkeyboardManagerImpl)
     if ([((id<ASIWidget>) nil_chk(w_)) getModelUiToPojoEventIds] != nil) {
       ASViewImpl_refreshUiFromModelWithASIWidget_withId_withBoolean_(w_, [((id<ASIWidget>) nil_chk(w_)) getModelUiToPojoEventIds], true);
     }
-    if (strValue_ != nil && ![strValue_ java_isEmpty] && ![((NSString *) nil_chk([((NSString *) nil_chk(strValue_)) java_trim])) java_hasPrefix:@"+"]) {
+    if (strValue_ != nil && ![strValue_ isEmpty] && ![((NSString *) nil_chk([((NSString *) nil_chk(strValue_)) java_trim])) java_hasPrefix:@"+"]) {
       id<ASIActivity> activity = [((id<ASIFragment>) nil_chk([((id<ASIWidget>) nil_chk(w_)) getFragment])) getRootActivity];
       if (activity != nil) {
         [activity sendEventMessageWithJavaUtilMap:obj];
@@ -542,7 +555,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQkeyboardManagerImpl)
 }
 
 - (id<JavaUtilMap>)getOnEditorActionEventObjWithADTextView:(ADTextView *)v
-                                                   withInt:(jint)actionId
+                                                   withInt:(int32_t)actionId
                                             withADKeyEvent:(ADKeyEvent *)event {
   id<JavaUtilMap> obj = ASPluginInvoker_getJSONCompatMap();
   (void) [((id<JavaUtilMap>) nil_chk(obj)) putWithId:@"action" withId:@"action"];

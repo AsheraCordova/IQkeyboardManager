@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-ios-widgets\IOSIQkeyboardManagerPlugin\src\main\java\com\ashera\iqkeyboardmanager\IQkeyboardManagerImpl.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_IQkeyboardManagerImpl")
@@ -21,6 +22,7 @@
 #include "IAttributable.h"
 
 @class ASWidgetAttribute;
+@class NSString;
 @protocol ASILifeCycleDecorator;
 @protocol ASIWidget;
 
@@ -64,6 +66,7 @@ FOUNDATION_EXPORT ASIQkeyboardManagerImpl *create_ASIQkeyboardManagerImpl_init(v
 J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerImpl)
 
 @compatibility_alias ComAsheraIqkeyboardmanagerIQkeyboardManagerImpl ASIQkeyboardManagerImpl;
+
 
 #endif
 

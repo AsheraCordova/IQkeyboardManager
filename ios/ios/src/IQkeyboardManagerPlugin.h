@@ -3,6 +3,7 @@
 //  source: D:\Java\git\core-ios-widgets\IOSIQkeyboardManagerPlugin\src\main\java\com\ashera\iqkeyboardmanager\IQkeyboardManagerPlugin.java
 //
 
+#import <Foundation/Foundation.h>
 #include "J2ObjC_header.h"
 
 #pragma push_macro("INCLUDE_ALL_IQkeyboardManagerPlugin")
@@ -39,6 +40,7 @@ FOUNDATION_EXPORT void ASIQkeyboardManagerPlugin_initPlugin(void);
 J2OBJC_TYPE_LITERAL_HEADER(ASIQkeyboardManagerPlugin)
 
 @compatibility_alias ComAsheraIqkeyboardmanagerIQkeyboardManagerPlugin ASIQkeyboardManagerPlugin;
+
 
 #endif
 

@@ -3,6 +3,11 @@
 //  source: D:\Java\git\core-ios-widgets\IOSIQkeyboardManagerPlugin\src\main\java\com\ashera\iqkeyboardmanager\IQkeyboardManagerPlugin.java
 //
 
+#define J2OBJC_IMPORTED_BY_JAVA_IMPLEMENTATION 1
+
+
+
+
 #include "IQPreviousNextViewImpl.h"
 #include "IQkeyboardManagerImpl.h"
 #include "IQkeyboardManagerPlugin.h"
@@ -10,6 +15,12 @@
 #include "WidgetFactory.h"
 
 #import "IQKeyboardManager.h"
+
+
+
+
+#pragma clang diagnostic error "-Wreturn-type"
+#pragma clang diagnostic ignored "-Wswitch"
 
 
 @interface ASIQkeyboardManagerPlugin ()
@@ -81,3 +92,5 @@ void ASIQkeyboardManagerPlugin_initIQManager() {
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(ASIQkeyboardManagerPlugin)
+
+J2OBJC_NAME_MAPPING(ASIQkeyboardManagerPlugin, "com.ashera.iqkeyboardmanager", "AS")
