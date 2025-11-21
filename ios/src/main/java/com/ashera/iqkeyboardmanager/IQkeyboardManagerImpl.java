@@ -1,3 +1,18 @@
+//start - license
+/*
+ * Copyright (c) 2025 Ashera Cordova
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ */
+//end - license
 package com.ashera.iqkeyboardmanager;
 //start - imports
 import java.util.*;
@@ -216,7 +231,7 @@ public java.util.Map<String, Object> getOnEditorActionEventObj(TextView v,int ac
 		addKeyboardListener();
 	}
 
-	private native void nativeAddPreviousNextDoneOnKeyboardWithTarget(Object view) /*-[
+	private native void nativeAddPreviousNextDoneOnKeyboardWithTarget(Object view)/*-[
 		[self addPreviousNextDoneOnKeyboardWithTarget: (UIView*)view];
 	]-*/;
 
@@ -248,7 +263,7 @@ public java.util.Map<String, Object> getOnEditorActionEventObj(TextView v,int ac
 	}
 	
 	
-	private native Object findEditableTextField(Object view) /*-[
+	private native Object findEditableTextField(Object view)/*-[
 		if ([view isKindOfClass:[ASUITextField class]] || [view isKindOfClass:[ASUITextView class]]) {
 	    	return view;
 	  	}
@@ -262,13 +277,13 @@ public java.util.Map<String, Object> getOnEditorActionEventObj(TextView v,int ac
 		return nil;
 	]-*/;
 
-	private native void nativeForceFocus(Object view) /*-[
+	private native void nativeForceFocus(Object view)/*-[
 		if ([view respondsToSelector:@selector(becomeFirstResponder)]) {
 			[view becomeFirstResponder];
 		}
 	]-*/;
 	
-	private native void nativeLooseFocus(Object view) /*-[
+	private native void nativeLooseFocus(Object view)/*-[
 		if ([view respondsToSelector:@selector(resignFirstResponder)]) {
 			[view resignFirstResponder];
 		}
