@@ -50,6 +50,7 @@ public class IQkeyboardManagerImpl implements com.ashera.widget.IAttributable {
 	// start - body
 	public final static String LOCAL_NAME = "IQkeyboardManager"; 
 	private IWidget w;
+	
 	private IQkeyboardManagerImpl(IWidget widget) {
 		this.w = widget;
 	}
